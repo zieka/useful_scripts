@@ -2,13 +2,28 @@
 
 ## Installing
 
-1. Download Mongo
-2. Mongo needs default data folder `/data/db`
-3. Start MongoDB: `mongod`
-4. Start Mongo shell: `mongo`
+1. Download/Install Mongo:
+  ```bash
+  brew install mongodb #OSX using homebrew
+  ```
+2. Mongo needs default data folder:
+  ```bash
+  sudo mkdir -p /data/db
+  sudo chown -R `id -u` /data/db #change ownership
+  ```
+3. Start MongoDB:
+  ```
+  mongod
+  ```
+4. Start Mongo shell:
+  ```
+  mongo
+  ```
 
 ### Helpful configuration
-* `mongod --config /etc/mongod.conf`
+```
+mongod --config /etc/mongod.conf
+```
 * Journalling allocates 3GB for write ahead logging to guarentee write operations
   - not recommended to turn off, especially in prod
   - if you want to turn off use `nojournal=true` in config
